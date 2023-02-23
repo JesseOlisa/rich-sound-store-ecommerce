@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
 	AiOutlineMinus,
 	AiOutlinePlus,
@@ -21,6 +21,10 @@ const ProductDetails = ({ product, allProducts }) => {
 		onAdd(product, qty);
 		setShowCart(true);
 	};
+
+	useEffect(() => {
+		setIndex(0);
+	}, [product]);
 
 	return (
 		<div>
@@ -59,7 +63,7 @@ const ProductDetails = ({ product, allProducts }) => {
 					</div>
 					<h4>Details:</h4>
 					<p>{details}</p>
-					<p className='price'>&#x20A6;{price}</p>
+					<p className='price'>&#x20A6;{price.toLocaleString()}</p>
 					<div className='quantity'>
 						<h3>Quantity:</h3>
 						<p className='quantity-desc'>

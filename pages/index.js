@@ -5,11 +5,10 @@ import { client } from '@/lib/client';
 import banner from '@/sanity_ecommerce/schemas/banner';
 
 const Home = ({ products, bannerData }) => {
-	// console.log(products)
+	console.log(products);
 	return (
 		<>
 			<HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-
 
 			<div className='products-heading'>
 				<h2>Best Selling Products</h2>
@@ -17,7 +16,12 @@ const Home = ({ products, bannerData }) => {
 			</div>
 
 			<div className='products-container'>
-				{products?.map((product, idx) => <Product key={idx} product={product}/>)}
+				{products?.map((product, idx) => (
+					<Product
+						key={idx}
+						product={product}
+					/>
+				))}
 			</div>
 
 			<FooterBanner footerBanner={bannerData && bannerData[0]} />

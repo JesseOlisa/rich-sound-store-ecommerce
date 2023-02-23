@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { urlFor } from '@/lib/client';
 
 const Product = ({ product }) => {
-
 	const { image, name, slug, price } = product;
 	return (
 		<div>
@@ -18,7 +17,7 @@ const Product = ({ product }) => {
 						alt='product'
 					/>
 					<p className='product-name'>{name}</p>
-					<p className='product-price'>{`$${price}`}</p>
+					<p className='product-price'>&#x20A6;{`${price.toLocaleString()}`}</p>
 				</div>
 			</Link>
 		</div>
